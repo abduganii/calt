@@ -1,0 +1,24 @@
+.WindowCard {
+    width: calc((100% - 10px) / 2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+
+    &__img {
+        border-radius: 62px;
+        background: #F7F7F7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        transition: all .3s ease;
+
+        img {
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+}

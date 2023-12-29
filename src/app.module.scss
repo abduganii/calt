@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
     &__svg {
       padding: 32px;
     }
@@ -34,6 +35,7 @@
     border-top: 1px solid #918c88;
     padding: 15px 29px;
     padding-left: 32px;
+
     &__wrap {
       display: flex;
       gap: 22px;
@@ -44,9 +46,11 @@
       height: 60px;
       background-color: rgb(72, 64, 56, 0.4);
     }
+
     &__content {
       text-align: end;
     }
+
     &__title {
       color: #484038;
       font-family: SF Pro Display;
@@ -55,13 +59,15 @@
       font-weight: 500;
       line-height: normal;
     }
+
     &__text {
       color: #918c88;
       font-family: SF Pro Display;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
-      line-height: 15px; /* 125% */
+      line-height: 15px;
+      /* 125% */
       margin-top: 4px;
       max-width: 252px;
     }
@@ -78,45 +84,63 @@
     &::-webkit-scrollbar {
       width: 10px;
     }
+
     &::-webkit-scrollbar-track {
       background: #dadada;
     }
+
     &::-webkit-scrollbar-thumb {
       background: rgb(171, 171, 171);
     }
+
     &::-webkit-scrollbar-thumb:hover {
       background: rgb(158, 158, 158);
     }
+
     &__header {
       width: 100%;
-      max-width: 419px;
+      max-width: 409px;
       height: 50px;
       position: fixed;
       top: 0;
-      right: 0;
+      right: 10px;
       padding: 5px 5px 11px 10px;
       border-bottom: 1px solid #e9e8e7;
+      background-color: #fff;
+      z-index: 10;
+
       &__wrap {
         display: flex;
+        align-items: center;
         width: 100%;
+        max-width: 385px;
         border-radius: 5px;
         background: #f7f7f7;
         padding: 2px;
         padding-right: 7px;
       }
-      &__btn {
-        color: rgb(72, 64, 56, 0.4);
-        text-align: center;
-        font-family: SF Pro Display;
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+
+      &__plus {
+        margin-left: auto;
       }
-      &__btnActive {
-        color: #484038;
-        padding: 8px 15px;
-      }
+
+    }
+
+    &__btn {
+      color: rgb(72, 64, 56, 0.4);
+      text-align: center;
+      font-family: SF Pro Display;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 8px 15px;
+      border-radius: 3px;
+    }
+
+    &__btnActive {
+      background: #FFF;
+      color: #484038;
     }
 
     &__top {
@@ -135,12 +159,10 @@
       width: 100%;
       max-width: 419px;
       height: 50px;
-      background: linear-gradient(
-        180deg,
-        #fff 0%,
-        rgba(255, 255, 255, 0.94) 20.06%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(180deg,
+          #fff 0%,
+          rgba(255, 255, 255, 0.94) 20.06%,
+          rgba(255, 255, 255, 0) 100%);
       position: fixed;
       bottom: 0;
       right: 0;
@@ -153,7 +175,7 @@
       width: 100%;
       max-width: 309px;
       margin: 0 auto;
-      margin-top: 60px;
+      margin-top: 77px;
       color: #484038;
       text-align: center;
       font-family: "SF Pro Display";
@@ -163,10 +185,74 @@
       line-height: 32px;
     }
 
-    &__flex {
-      display: flex;
-      align-items: flex-start;
-      gap: 42px;
+
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 303px;
+    margin: 0 auto;
+  }
+
+  &__head {
+    color: #484038;
+    text-align: center;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+
+  &__dics {
+    color: #484038;
+    font-family: SF Pro Display;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    width: 100%;
+    max-width: 247px;
+    margin: 0 auto;
+    text-align: center;
+
+    span {
+      font-weight: 600;
     }
   }
+
+  &__sizeInput {
+    width: calc((100% - 5px) / 2);
+    border: 1px solid transparent;
+    border-radius: 73px;
+    background: rgba(145, 140, 136, 0.10);
+    padding: 14px 25px;
+    padding-left: 49px;
+    outline: none;
+    background-image: url('/arrows-v.svg');
+    background-position: 22px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+
+    &:focus {
+      border: 1px solid #0047FF;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0px 0px 0px 2px rgba(0, 71, 255, 0.15);
+    }
+
+  }
+
+  &__sizeInputImg {
+    background-image: url('/arrows-v1.svg');
+  }
+}
+
+.mainCheckValueRight {
+  left: calc(50% - 2px) !important;
 }

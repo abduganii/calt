@@ -1,0 +1,44 @@
+.CheckBox {
+    width: 100%;
+    max-width: 303px;
+    margin: auto;
+    border-radius: 5px;
+    background: #F7F7F7;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    p {
+        width: 50%;
+        color: #484038;
+        text-align: center;
+        font-family: SF Pro Display;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        padding: 8px 0;
+        z-index: 3;
+
+    }
+
+    div {
+        z-index: 1;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 50%;
+        height: 32px;
+        border-radius: 3px;
+        background: #FFF;
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.09);
+        transition: all .3s ease-in-out;
+    }
+
+    &__divActive {
+
+        left: calc(50% - 2px) !important;
+    }
+}

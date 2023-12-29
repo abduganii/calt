@@ -1,0 +1,31 @@
+.TypeProfile {
+    border-radius: 8px;
+    border: 1px solid rgb(227, 227, 227, .5);
+    cursor: pointer;
+    background: #FFF;
+    padding: 14px;
+    text-align: center;
+    width: calc((100% - 4px) / 2);
+    transition: all .3s ease;
+
+    p {
+        color: #484038;
+
+        font-family: SF Pro Display;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 2px;
+    }
+
+    span {
+        color: #484038;
+
+        font-family: SF Pro Display;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}

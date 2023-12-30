@@ -181,6 +181,16 @@ function App() {
         }
 
         <h3 className={cls.main__head}>Добавте комментарии</h3>
+
+        <textarea
+          style={{ marginBottom: "60px" }}
+          className={cls.main__textArea}
+          placeholder={"Комментарий"}
+          rows={6}
+        ></textarea>
+
+        <button className={cls.main__btn} style={{ marginBottom: "10px", background: "#6d66601a", color: "#6D6660" }}>Есть ли еще другие размеры</button>
+        <button className={cls.main__btn}>Оформить заказ</button>
       </div>
 
     </main >

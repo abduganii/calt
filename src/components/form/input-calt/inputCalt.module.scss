@@ -1,0 +1,73 @@
+.InputCalt {
+    width: 100%;
+    max-width: 180px;
+
+
+    p {
+        width: 100%;
+        color: #484038;
+        text-align: center;
+        font-family: SF Pro Display;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 9px;
+    }
+
+    &__input {
+        width: 100%;
+        display: flex;
+        border-radius: 12px;
+        border: 1px solid #EFEFEF;
+        background: #FFF;
+
+        p {
+            color: #484038;
+            text-align: center;
+            font-family: SF Pro Display;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            padding: 16px 25px;
+            border-left: 1px solid #EFEFEF;
+            border-right: 1px solid #EFEFEF;
+            margin: 0;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2px;
+            padding: 15px 20px;
+            border-radius: 0px 10px 10px 0px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:first-child {
+                border-radius: 10px 0px 0px 10px;
+
+            }
+
+            &:hover {
+
+                background: #EFEFEF;
+            }
+
+            &:active {
+                background: #FFF;
+            }
+
+        }
+
+        &__desible {
+            opacity: .2;
+
+            &:hover {
+                background: #FFF !important;
+            }
+        }
+    }
+}

@@ -56,4 +56,18 @@ export const Imagecons = () => {
     </svg>
   );
 };
-
+export const DecreazeIcons = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+      <path d="M3.8335 8H13.1668" stroke="#6D6660" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};
+export const IncreazeIcons = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+      <path d="M8.5 3.3335V12.6668" stroke="#6D6660" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M3.8335 8H13.1668" stroke="#6D6660" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  );
+};

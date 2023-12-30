@@ -4,8 +4,9 @@ import img from "/Home.svg";
 import { PlusIcons, RoundIcons } from "./components/icons";
 import { TypeProfil, WindowArr } from "./data";
 import TypeProfile from "./components/card/type-profile";
-import CheckBox from "./components/checkbox";
+import CheckBox from "./components/form/checkbox";
 import WindowCard from "./components/card/window";
+import InputCalt from "./components/form/input-calt";
 
 function App() {
   const [typeProfile, setTypeProfile] = useState(false)
@@ -13,6 +14,8 @@ function App() {
   const [windowId2, setWindowId2] = useState(false)
   const [CheckValue, setCheckValue] = useState(true)
   const [CheckValue2, setCheckValue2] = useState(true)
+  const [leftValue, setLeftValue] = useState(0)
+  const [rightValue, setRightValue] = useState(0)
 
   return (
     <main className={`${cls.main}`}>
@@ -124,16 +127,19 @@ function App() {
         <CheckBox
           text={"Петли"}
           text2={"Подемные механизми"}
+          style={{ maxWidth: "336px" }}
           className={!CheckValue2 ? cls.mainCheckValueRight : ""}
           onClick={() => setCheckValue2(!CheckValue2)}
         />
         {
-          WindowArr && <div className={cls.main__flex} style={{ gap: "10px", marginTop: "25px" }}>
+          WindowArr && <div className={cls.main__flex} style={{ marginTop: "25px", maxWidth: "336px" }}>
             {
               WindowArr?.map(e => (
                 <WindowCard
                   key={e?.id}
                   title={e?.title}
+                  shodow={true}
+                  click={`${windowId2 == e?.id && true}`}
                   className={`${windowId2 == e?.id ? "focus" : ""}`}
                   onClick={() => setWindowId2(e?.id)}
                 />
@@ -142,7 +148,41 @@ function App() {
           </div>
         }
         <h3 className={cls.main__head}>Количество фасадов</h3>
+
+        <InputCalt
+          value={leftValue}
+          setValue={setLeftValue}
+          label={"Левий"}
+          style={{ margin: "0 auto 12px auto" }}
+        />
+        <InputCalt
+          value={rightValue}
+          setValue={setRightValue}
+          label={"Правый"}
+          style={{ margin: "auto" }}
+        />
+
+        <h3 className={cls.main__head}>Встроенная или накладная ручка, с какой стороны ее закрепить?</h3>
+        {
+          TypeProfil && <div className={cls.main__flex} style={{ gap: "4px" }}>
+            {
+              TypeProfil?.map(e => (
+                <TypeProfile
+                  key={e?.id}
+                  title={e?.title}
+                  // text={e?.text}
+                  style={{ padding: "21px" }}
+                  className={`${typeProfile == e?.id ? "focus" : ""}`}
+                  onClick={() => setTypeProfile(e?.id)}
+                />
+              ))
+            }
+          </div>
+        }
+
+        <h3 className={cls.main__head}>Добавте комментарии</h3>
       </div>
+
     </main >
   );
 }

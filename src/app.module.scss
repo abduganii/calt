@@ -205,8 +205,10 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    margin-top: 60px;
+    margin: 60px auto;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 244px;
   }
 
   &__dics {

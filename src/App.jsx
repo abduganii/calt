@@ -16,6 +16,7 @@ function App() {
   const [CheckValue2, setCheckValue2] = useState(true)
   const [leftValue, setLeftValue] = useState(0)
   const [rightValue, setRightValue] = useState(0)
+  const [openBottom, setOpenBottom] = useState(true)
 
   return (
     <main className={`${cls.main}`}>
@@ -26,25 +27,30 @@ function App() {
         <div className={cls.main__img}>
           <img src={img} alt="img" />
         </div>
-        <div className={cls.main__bottom}>
-          <div className={cls.main__bottom__logo}>
-            <p>Сделана в:</p>
-            <a href="http://Getter.uz" target="_blank">
-              <img src="/Getter.svg" alt="img" width={74} height={30} />
-            </a>
+        <div className={`${cls.main__bottom} ${openBottom ? cls.main__bottomTrue : ""}`}>
+          <div className={cls.main__bottom__open} onClick={() => setOpenBottom(!openBottom)}>
+            <div className={`${openBottom ? cls.main__bottom__open__active : ""}`}></div>
           </div>
-          <div className={cls.main__bottom__wrap}>
-            <div className={cls.main__bottom__content}>
-              <h4 className={cls.main__bottom__title}>Стоимость:</h4>
-              <p className={cls.main__bottom__text}>
-                Определенное оборудование оплачивается за квадратный метр,
-                другое - за штуку.
-              </p>
+          <div className={cls.main__bottom__flex}>
+            <div className={cls.main__bottom__logo}>
+              <p>Сделана в:</p>
+              <a href="http://Getter.uz" target="_blank">
+                <img src="/Getter.svg" alt="img" width={74} height={30} />
+              </a>
             </div>
-            <div className={cls.main__bottom__line}></div>
-            <div className={cls.main__bottom__price}>
-              <h4 className={cls.main__bottom__title}>235.09$</h4>
-              <p className={cls.main__bottom__text}>+ 25.08$ Добавили стекло</p>
+            <div className={cls.main__bottom__wrap}>
+              <div className={cls.main__bottom__content}>
+                <h4 className={cls.main__bottom__title}>Стоимость:</h4>
+                <p className={cls.main__bottom__text}>
+                  Определенное оборудование оплачивается за квадратный метр,
+                  другое - за штуку.
+                </p>
+              </div>
+              <div className={cls.main__bottom__line}></div>
+              <div className={cls.main__bottom__price}>
+                <h4 className={cls.main__bottom__title}>235.09$</h4>
+                <p className={cls.main__bottom__text}>+ 25.08$ Добавили стекло</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import cls from "./app.module.scss";
 import img from "/Home.svg";
+import img1 from "./assets/window.png";
+import img2 from "./assets/window1.png";
+import img3 from "./assets/window2.png";
+
 import { PlusIcons, RoundIcons } from "./components/icons";
 import { TypeProfil, WindowArr } from "./data";
 import TypeProfile from "./components/card/type-profile";
@@ -9,6 +13,8 @@ import WindowCard from "./components/card/window";
 import InputCalt from "./components/form/input-calt";
 
 function App() {
+  const [GlobalImage, setGlobalImg] = useState(img)
+
   const [typeProfile, setTypeProfile] = useState(false)
   const [windowId, setWindowId] = useState(false)
   const [windowId2, setWindowId2] = useState(false)
@@ -18,6 +24,36 @@ function App() {
   const [rightValue, setRightValue] = useState(0)
   const [openBottom, setOpenBottom] = useState(true)
 
+
+  const elementRefs = useRef();
+  const elementRefs1 = useRef();
+  const elementRefs2 = useRef();
+  const elementRefs3 = useRef();
+
+
+  const handleScroll = (e) => {
+
+    const rect = elementRefs?.current.getBoundingClientRect();
+    const rect1 = elementRefs1?.current.getBoundingClientRect();
+    const rect2 = elementRefs2?.current.getBoundingClientRect();
+    const rect3 = elementRefs3?.current.getBoundingClientRect();
+    console.log(rect.top)
+    if (rect.top >= 500 & rect.top <= 650) {
+      setGlobalImg(img)
+    }
+    if (rect1.top >= 500 & rect1.top <= 650) {
+      setGlobalImg(img1)
+    }
+    if (rect2.top >= 500 & rect2.top <= 650) {
+      setGlobalImg(img2)
+    }
+
+    if (rect3.top >= 500 & rect3.top <= 650) {
+      setGlobalImg(img3)
+    }
+  };
+
+  console.log(GlobalImage)
   return (
     <main className={`${cls.main}`}>
       <div className={cls.main__Left}>
@@ -25,7 +61,10 @@ function App() {
           <RoundIcons />
         </div>
         <div className={cls.main__img}>
-          <img src={img} alt="img" />
+          <img
+            src={GlobalImage}
+            alt="img"
+          />
         </div>
         <div className={`${cls.main__bottom} ${openBottom ? cls.main__bottomTrue : ""}`}>
           <div className={cls.main__bottom__open} onClick={() => setOpenBottom(!openBottom)}>
@@ -56,7 +95,7 @@ function App() {
         </div>
       </div>
 
-      <div className={`${cls.main__right}`}>
+      <div className={`${cls.main__right}`} onScroll={(e) => handleScroll(e)}>
         <div className={cls.main__right__header}>
           <div className={cls.main__right__header__wrap}>
             <div
@@ -74,7 +113,7 @@ function App() {
         <h2 className={cls.main__right__title}>
           Изготовление рамочных фасадов
         </h2>
-        <h3 className={cls.main__head}>Тип профиля</h3>
+        <h3 className={cls.main__head}  >Тип профиля</h3>
         {
           TypeProfil && <div className={cls.main__flex} style={{ gap: "4px" }}>
             {
@@ -90,13 +129,20 @@ function App() {
             }
           </div>
         }
-        <h3 className={cls.main__head}>Цвет</h3>
+        <h3 className={cls.main__head} >Цвет</h3>
+        <div className={cls.main__flex} style={{ gap: "10px" }}>
+          <div className={cls.main__ColorBox}></div>
+          <div className={cls.main__ColorBox}></div>
+          <div className={cls.main__ColorBox}></div>
+          <div className={cls.main__ColorBox}></div>
+          <div className={cls.main__ColorBox}></div>
 
-        <p className={cls.main__dics}>
+        </div>
+        <p className={cls.main__dics} style={{ marginTop: "32px" }}>
           <span> Советы!</span> При выборе профиля для фасада рекомендуем учесть стиль, прочность, цвет и размеры.
         </p>
 
-        <h3 className={cls.main__head}>Cтекла</h3>
+        <h3 className={cls.main__head} ref={elementRefs}>Cтекла</h3>
         <CheckBox
           text={"Тип стекла"}
           text2={"Услуги"}
@@ -119,7 +165,7 @@ function App() {
           </div>
         }
 
-        <h3 className={cls.main__head}>Высота и ширина</h3>
+        <h3 className={cls.main__head} >Высота и ширина</h3>
         <div className={cls.main__flex} style={{ gap: "5px", marginBottom: "19px" }}>
           <input className={cls.main__sizeInput} type="number" placeholder="?-mm" />
           <input className={`${cls.main__sizeInput} ${cls.main__sizeInputImg}`} type="number" placeholder="?-mm" />
@@ -128,7 +174,7 @@ function App() {
           Наши эксперты создадут идеальное решение под ваши требования.
         </p>
 
-        <h3 className={cls.main__head}>Высота и ширина</h3>
+        <h3 className={cls.main__head} ref={elementRefs1}>Тип открывания</h3>
 
         <CheckBox
           text={"Петли"}
@@ -153,7 +199,7 @@ function App() {
             }
           </div>
         }
-        <h3 className={cls.main__head}>Количество фасадов</h3>
+        <h3 className={cls.main__head} ref={elementRefs2}>Количество фасадов</h3>
 
         <InputCalt
           value={leftValue}
@@ -168,7 +214,7 @@ function App() {
           style={{ margin: "auto" }}
         />
 
-        <h3 className={cls.main__head}>Встроенная или накладная ручка, с какой стороны ее закрепить?</h3>
+        <h3 className={cls.main__head} ref={elementRefs3}>Встроенная или накладная ручка, с какой стороны ее закрепить?</h3>
         {
           TypeProfil && <div className={cls.main__flex} style={{ gap: "4px" }}>
             {
@@ -186,7 +232,7 @@ function App() {
           </div>
         }
 
-        <h3 className={cls.main__head}>Добавте комментарии</h3>
+        <h3 className={cls.main__head} >Добавте комментарии</h3>
 
         <textarea
           style={{ marginBottom: "60px" }}

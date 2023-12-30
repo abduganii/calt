@@ -476,6 +476,29 @@
     font-weight: 600;
     line-height: normal;
   }
+
+  &__ColorBox {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #262626;
+
+    &:nth-child(2) {
+      background: linear-gradient(#502E24, #C49C7B);
+    }
+
+    &:nth-child(3) {
+      background: linear-gradient(#A2790D, #EBD197);
+    }
+
+    &:nth-child(4) {
+      background: linear-gradient(#606060, #CBCBCB);
+    }
+
+    &:nth-child(5) {
+      background: linear-gradient(#D1D1D1, #FFFFFF);
+    }
+  }
 }
 
 .mainCheckValueRight {
